@@ -26,6 +26,8 @@ let s:lighter_black   = { "gui": "#545454", "cterm": "240" }
 let s:subtle_black    = { "gui": "#303030", "cterm": "236" }
 let s:light_gray      = { "gui": "#B2B2B2", "cterm": "249" }
 let s:lighter_gray    = { "gui": "#C6C6C6", "cterm": "251" }
+let s:almost_white    = { "gui": "#F8F8F8", "cterm": "255" }
+let s:almost_black    = { "gui": "#303030", "cterm": "236" }
 let s:pink            = { "gui": "#fb007a", "cterm": "9"   }
 let s:dark_red        = { "gui": "#C30771", "cterm": "1"   }
 let s:light_red       = { "gui": "#E32791", "cterm": "1"   }
@@ -47,6 +49,7 @@ if &background == "dark"
   let s:bg              = s:black
   let s:bg_subtle       = s:light_black
   let s:bg_very_subtle  = s:subtle_black
+  let s:bg_ultra_subtle = s:almost_black
   let s:norm            = s:lighter_gray
   let s:norm_subtle     = s:light_gray
   let s:purple          = s:light_purple
@@ -58,6 +61,7 @@ else
   let s:bg              = s:actual_white
   let s:bg_subtle       = s:light_gray
   let s:bg_very_subtle  = s:lighter_gray
+  let s:bg_ultra_subtle = s:almost_white
   let s:norm            = s:light_black
   let s:norm_subtle     = s:lighter_black
   let s:purple          = s:dark_purple
@@ -138,7 +142,7 @@ call s:h("Search",        {"bg": s:bg_subtle, "fg": s:norm})
 call s:h("MoreMsg",       {"fg": s:medium_gray, "cterm": "bold", "gui": "bold"})
 hi! link ModeMsg MoreMsg
 call s:h("LineNr",        {"fg": s:bg_subtle})
-call s:h("CursorLineNr",  {"fg": s:blue, "bg": s:bg_very_subtle})
+call s:h("CursorLineNr",  {"fg": s:red, "bg": s:bg_ultra_subtle, "cterm": "bold", "gui": "bold"})
 call s:h("Question",      {"fg": s:red})
 call s:h("StatusLine",    {"bg": s:bg_very_subtle})
 call s:h("StatusLineNC",  {"bg": s:bg_very_subtle, "fg": s:medium_gray})
@@ -175,11 +179,11 @@ call s:h("PmenuThumb",    {"fg": s:norm, "bg": s:bg_subtle})
 call s:h("TabLine",       {"fg": s:norm, "bg": s:bg_very_subtle})
 call s:h("TabLineSel",    {"fg": s:blue, "bg": s:bg_subtle, "gui": "bold", "cterm": "bold"})
 call s:h("TabLineFill",   {"fg": s:norm, "bg": s:bg_very_subtle})
-call s:h("CursorColumn",  {"bg": s:bg_very_subtle})
-call s:h("CursorLine",    {"fg": s:norm, "bg": s:bg_very_subtle})
+call s:h("CursorColumn",  {"bg": s:bg_ultra_subtle})
+call s:h("CursorLine",    {"bg": s:bg_ultra_subtle})
 call s:h("ColorColumn",   {"bg": s:bg_subtle})
 
-call s:h("MatchParen",    {"bg": s:bg_subtle, "fg": s:norm})
+call s:h("MatchParen",    {"gui": "bold"})
 call s:h("qfLineNr",      {"fg": s:medium_gray})
 
 call s:h("htmlH1",        {"bg": s:bg, "fg": s:norm})
